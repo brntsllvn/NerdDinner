@@ -47,5 +47,10 @@ namespace NerdDinner.Models
                 yield return new RuleViolation("Field value test is required", "Country");
             }
         }
+
+        public bool IsHostedBy(string userName)
+        {
+            return HostedBy.Equals(userName, StringComparison.InvariantCultureIgnoreCase);
+        }
     }
 }

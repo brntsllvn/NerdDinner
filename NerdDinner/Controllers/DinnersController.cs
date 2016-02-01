@@ -39,6 +39,7 @@ namespace NerdDinner.Controllers
                 return View("Details", dinner);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             Dinner dinner = new Dinner()
@@ -50,12 +51,19 @@ namespace NerdDinner.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Dinner dinner)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
+                    dinner.HostedBy = User.Identity.Name;
+
+                    //RSVP rsvp = new RSVP();
+                    //rsvp.AttendeeEmail = User.Identity.Name;
+                    //dinner.RSVPs.Add(rsvp);
+
                     dinnerRepository.Add(dinner);
                     dinnerRepository.Save();
 
@@ -72,14 +80,21 @@ namespace NerdDinner.Controllers
             return View(new DinnerFormViewModel(dinner));
         }
 
+        [Authorize]
         public ActionResult Edit(int id)
         {
             Dinner dinner = dinnerRepository.GetDinner(id);
+
+            if (!dinner.IsHostedBy(User.Identity.Name))
+            {
+                return View("InvalidOwner");
+            }
 
             return View(new DinnerFormViewModel(dinner));
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(int id, FormCollection collection)
         {
             Dinner dinner = dinnerRepository.GetDinner(id);

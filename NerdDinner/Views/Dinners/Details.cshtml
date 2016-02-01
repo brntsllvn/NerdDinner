@@ -19,8 +19,11 @@
     </p>
 </div>
 
-<p>
-    @Html.ActionLink("Back", "Index") |
-    @Html.ActionLink("Edit", "Edit", new {id = Model.DinnerID}) |
-    @Html.ActionLink("Delete", "Delete", new {id = Model.DinnerID})
-</p>
+@Html.ActionLink("Back", "Index")
+
+@if(Model.IsHostedBy(Context.User.Identity.Name)) {
+    <p>
+        @Html.ActionLink("Edit", "Edit", new {id = Model.DinnerID}) |
+        @Html.ActionLink("Delete", "Delete", new {id = Model.DinnerID})
+    </p>
+}

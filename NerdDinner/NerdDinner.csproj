@@ -258,6 +258,7 @@
     <Content Include="Views\Dinners\Index.cshtml" />
     <Content Include="Views\Dinners\NotFound.cshtml" />
     <Content Include="Views\Dinners\_DinnerForm.cshtml" />
+    <Content Include="Views\Dinners\InvalidOwner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
