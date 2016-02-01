@@ -19,6 +19,23 @@
     </p>
 </div>
 
+@if (Request.IsAuthenticated)
+{
+    if (Model.IsUserRegistered(Context.User.Identity.Name))
+     {
+         <p>You are registered for this event!</p>
+     }
+     else
+     {
+        <p>You are not registered for this event...</p>
+     }
+}
+else
+{
+    <p><a href="/Account/Logon">Logon</a> to RSVP for this event;</p>
+}
+
+
 @Html.ActionLink("Back", "Index")
 
 @if(Model.IsHostedBy(Context.User.Identity.Name)) {
