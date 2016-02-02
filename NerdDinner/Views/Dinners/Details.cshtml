@@ -1,4 +1,5 @@
-﻿@model NerdDinner.Models.Dinner
+﻿@using System.Activities.Expressions
+@model NerdDinner.Models.Dinner
 
 @{
     ViewBag.Title = "Details";
@@ -19,28 +20,41 @@
     </p>
 </div>
 
-@if (Request.IsAuthenticated)
-{
-    if (Model.IsUserRegistered(Context.User.Identity.Name))
-     {
-         <p>You are registered for this event!</p>
-     }
-     else
-     {
-        <p>You are not registered for this event...</p>
-     }
-}
-else
-{
-    <p><a href="/Account/Logon">Logon</a> to RSVP for this event;</p>
-}
+<div id="rsvpmsg">
 
+    @if (Request.IsAuthenticated)
+    {
+        if (Model.IsUserRegistered(Context.User.Identity.Name))
+        {
+            <p>You are registered for this event!</p>
+        }
+        else
+        {
+            <p>
+                @Ajax.ActionLink(
+                        "RSVP for event",
+                        "Register",
+                        "Dinners",
+                        new { id = Model.DinnerID },
+                        new AjaxOptions { UpdateTargetId = "rsvpmsg" }
+               )
+                You are not registered for this event...
+        </p>
+        }
+    }
+    else
+    {
+        <p><a href="/Account/Logon">Logon</a> to RSVP for this event;</p>
+    }
+
+</div>
 
 @Html.ActionLink("Back", "Index")
 
-@if(Model.IsHostedBy(Context.User.Identity.Name)) {
+@if (Model.IsHostedBy(Context.User.Identity.Name))
+{
     <p>
-        @Html.ActionLink("Edit", "Edit", new {id = Model.DinnerID}) |
-        @Html.ActionLink("Delete", "Delete", new {id = Model.DinnerID})
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DinnerID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.DinnerID })
     </p>
 }

@@ -7,7 +7,7 @@ namespace NerdDinner.Models
 {
     public class DinnerRepository
     {
-        private NerdDinnerDataContext db = new NerdDinnerDataContext();
+        public NerdDinnerDataContext db = new NerdDinnerDataContext();
 
         public IQueryable<Dinner> FinalAllDinners()
         {

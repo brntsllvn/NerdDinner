@@ -138,5 +138,23 @@ namespace NerdDinner.Controllers
 
             return View("Deleted");
         }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Register(int id)
+        {
+            Dinner dinner = dinnerRepository.GetDinner(id);
+
+            if (!dinner.IsUserRegistered(User.Identity.Name))
+            {
+                RSVP rsvp = new RSVP();
+                rsvp.AttendeeEmail = User.Identity.Name;
+
+                dinner.RSVPs.Add(rsvp);
+                dinnerRepository.Save();
+            }
+
+            return Content("Thanks! See you there...");
+        }
     }
 }
