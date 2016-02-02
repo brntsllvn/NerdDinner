@@ -1,5 +1,4 @@
-﻿@using System.Activities.Expressions
-@model NerdDinner.Models.Dinner
+﻿@model NerdDinner.Models.Dinner
 
 @{
     ViewBag.Title = "Details";
@@ -20,45 +19,9 @@
     </p>
 </div>
 
-<div id="rsvpmsg">
-
-    @if (Request.IsAuthenticated)
-    {
-        if (Model.IsUserRegistered(Context.User.Identity.Name))
-        {
-            <p>You are registered for this event!</p>
-        }
-        else
-        {
-            <p>
-                @Ajax.ActionLink(
-                        "RSVP for event",
-                        "Register",
-                        "Dinners",
-                        new { id = Model.DinnerID },
-                        new AjaxOptions
-                        {
-                            HttpMethod = "Post",
-                            UpdateTargetId = "rsvpmsg",
-                            OnSuccess = "AnimateRSVPMessage"
-                        }
-               )
-            </p>
-        }
-    }
-    else
-    {
-        <p><a href="/Account/Logon">Logon</a> to RSVP for this event;</p>
-    }
-
-</div>
+@{
+    Html.RenderPartial("_RSVPStatus");
+    Html.RenderPartial("_EditAndDeleteLinks");
+}
 
 @Html.ActionLink("Back", "Index")
-
-@if (Model.IsHostedBy(Context.User.Identity.Name))
-{
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.DinnerID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.DinnerID })
-    </p>
-}

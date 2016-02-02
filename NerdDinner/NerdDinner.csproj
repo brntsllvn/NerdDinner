@@ -303,6 +303,8 @@
     <Content Include="Views\Dinners\NotFound.cshtml" />
     <Content Include="Views\Dinners\_DinnerForm.cshtml" />
     <Content Include="Views\Dinners\InvalidOwner.cshtml" />
+    <Content Include="Views\Dinners\_RSVPStatus.cshtml" />
+    <Content Include="Views\Dinners\_EditAndDeleteLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
