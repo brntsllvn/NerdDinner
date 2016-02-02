@@ -36,10 +36,14 @@
                         "Register",
                         "Dinners",
                         new { id = Model.DinnerID },
-                        new AjaxOptions { UpdateTargetId = "rsvpmsg" }
+                        new AjaxOptions
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "rsvpmsg",
+                            OnSuccess = "AnimateRSVPMessage"
+                        }
                )
-                You are not registered for this event...
-        </p>
+            </p>
         }
     }
     else

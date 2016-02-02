@@ -60,10 +60,6 @@ namespace NerdDinner.Controllers
                 {
                     dinner.HostedBy = User.Identity.Name;
 
-                    //RSVP rsvp = new RSVP();
-                    //rsvp.AttendeeEmail = User.Identity.Name;
-                    //dinner.RSVPs.Add(rsvp);
-
                     dinnerRepository.Add(dinner);
                     dinnerRepository.Save();
 
