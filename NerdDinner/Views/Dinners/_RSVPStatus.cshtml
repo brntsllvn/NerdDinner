@@ -12,23 +12,31 @@
         {
             <p>
                 @Ajax.ActionLink(
-                        "RSVP for event",
-                        "Register",
-                        "Dinners",
-                        new { id = Model.DinnerID },
-                        new AjaxOptions
-                        {
-                            HttpMethod = "Post",
-                            UpdateTargetId = "rsvpmsg",
-                            OnSuccess = "AnimateRSVPMessage"
-                        }
-               )
+                    "RSVP for event",
+                    "Register",
+                    "Dinners",
+                    new {id = Model.DinnerID},
+                    new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "rsvpmsg",
+                        OnSuccess = "AnimateRSVPMessage"
+                    }
+                    )
             </p>
         }
     }
     else
     {
-        <p><a href="/Account/Logon">Logon</a> to RSVP for this event;</p>
+        <p><a href="/Account/Logon">Logon</a> to RSVP for this event;
+        </p>
     }
 
 </div>
+
+
+<script type="text/javascript">
+        function AnimateRSVPMessage() {
+            $("#rsvpmsg").animate({ fontSize: "3.5em" }, 400);
+        }
+</script>
