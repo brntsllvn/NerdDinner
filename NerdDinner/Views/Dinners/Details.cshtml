@@ -24,4 +24,8 @@
     Html.RenderPartial("_EditAndDeleteLinks");
 }
 
+<div id="mapDiv">
+    @{ Html.RenderPartial("Map", Model); }
+</div>
+
 @Html.ActionLink("Back", "Index")
