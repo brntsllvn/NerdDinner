@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Entity.Core.Objects;
 
 namespace NerdDinner.Models
 {
@@ -41,6 +43,17 @@ namespace NerdDinner.Models
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        public IQueryable<Dinner> FindByLocation(float latitude, float longitude)
+        {
+
+            var dinners = from dinner in FindUpcomingDinners()
+                          join i in db.NearestDinners(latitude, longitude)
+                          on dinner.DinnerID equals i.DinnerID
+                          select dinner;
+
+            return dinners;
         }
     }
 }
