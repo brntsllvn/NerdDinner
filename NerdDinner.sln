@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdDinner", "NerdDinner\NerdDinner.csproj", "{53266D4A-C8DD-45E4-8E73-F73F4720859C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdDinner.Tests", "NerdDinner.Tests\NerdDinner.Tests.csproj", "{7CF0B3AE-3967-413B-BF38-30F0074D3BF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{53266D4A-C8DD-45E4-8E73-F73F4720859C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53266D4A-C8DD-45E4-8E73-F73F4720859C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53266D4A-C8DD-45E4-8E73-F73F4720859C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF0B3AE-3967-413B-BF38-30F0074D3BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF0B3AE-3967-413B-BF38-30F0074D3BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF0B3AE-3967-413B-BF38-30F0074D3BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF0B3AE-3967-413B-BF38-30F0074D3BF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

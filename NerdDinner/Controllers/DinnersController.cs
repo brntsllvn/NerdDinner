@@ -16,7 +16,15 @@ namespace NerdDinner.Controllers
     public class DinnersController : Controller
     {
 
-        DinnerRepository dinnerRepository = new DinnerRepository();
+        IDinnerRepository dinnerRepository;
+
+        public DinnersController()
+            : this(new DinnerRepository()){}
+
+        public DinnersController(IDinnerRepository repository)
+        {
+            dinnerRepository = repository;
+        }
 
         // GET: /Dinners/
         public ActionResult Index(int? page)

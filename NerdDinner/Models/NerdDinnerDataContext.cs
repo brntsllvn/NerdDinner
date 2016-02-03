@@ -9,6 +9,7 @@ namespace NerdDinner.Models
 {
     public class NerdDinnerDataContext : DbContext
     {
+
         public DbSet<Dinner> Dinners { get; set; }
         public DbSet<RSVP>   RSVPs { get; set; }
 

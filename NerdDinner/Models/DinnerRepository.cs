@@ -7,11 +7,11 @@ using System.Data.Entity.Core.Objects;
 
 namespace NerdDinner.Models
 {
-    public class DinnerRepository
+    public class DinnerRepository : IDinnerRepository
     {
         public NerdDinnerDataContext db = new NerdDinnerDataContext();
 
-        public IQueryable<Dinner> FinalAllDinners()
+        public IQueryable<Dinner> FindAllDinners()
         {
             return db.Dinners;
         }
