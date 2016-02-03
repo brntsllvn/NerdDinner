@@ -50,8 +50,8 @@
             </div>
         </div>
 
-        @Html.Hidden("Latitude", Model.Dinner.Latitude)
-        @Html.Hidden("Longitude", Model.Dinner.Longitude)
+        @Html.Hidden("Dinner.Latitude", Model.Dinner.Latitude)
+        @Html.Hidden("Dinner.Longitude", Model.Dinner.Longitude)
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -68,8 +68,8 @@
     <script>
         $(document).ready(function() {
             $("#Dinner_Address").blur(function(evt) {
-                $("#Latitude").val("");
-                $("#Longitude").val("");
+                $("#Dinner_Latitude").val("");
+                $("#Dinner_Longitude").val("");
 
                 var address = jQuery.trim($("#Dinner_Address").val());
                 if (address.length < 1)

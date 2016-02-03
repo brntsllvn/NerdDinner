@@ -72,8 +72,8 @@ function callbackForLocation(layer, resultsArray, places, hasMore, VEErrorMessag
 
     //If we've found exactly one place, that's our address.
     if (points.length === 1) {
-        $("#Latitude").val(points[0].Latitude);
-        $("#Longitude").val(points[0].Longitude);
+        $("#Dinner_Latitude").val(points[0].Latitude);
+        $("#Dinner_Longitude").val(points[0].Longitude);
     }
 }
 
